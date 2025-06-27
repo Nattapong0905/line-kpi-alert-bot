@@ -6,7 +6,7 @@ const POWERBI_URL = 'https://aigpbi.aitech.co.th/reports/powerbi/ERP/KPI%20%20st
 const LINE_TOKEN = process.env.LINE_TOKEN;
 const GROUP_ID = process.env.LINE_GROUP_ID;
 
-const browser = await puppeteer.launch({ headless: 'new' });
+const browser = await puppeteer.launch({headless: 'new', args: ['--no-sandbox', '--disable-setuid-sandbox']});
 const page = await browser.newPage();
 await page.goto(POWERBI_URL, { waitUntil: 'networkidle2' });
 
